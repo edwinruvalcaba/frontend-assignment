@@ -10,7 +10,7 @@ const App = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     fetch(
-      `https://api.themoviedb.org/3/search/movie?api_key=7315ec59ea2264da1fa4f4eb8d647853&query=${searchTerm}`
+      `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}${searchTerm}`
     )
       .then((data) => data.json())
       .then((data) => {
