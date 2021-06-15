@@ -9,9 +9,11 @@ const MovieList = (props) => {
         return (
           <MovieCard
             key={movie.id}
+            id={movie.id}
             image={movie.poster_path}
             title={movie.title}
             rating={movie.vote_average}
+            getMovieDetails={props.getMovieDetails}
           />
         );
       })}

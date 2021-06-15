@@ -1,7 +1,28 @@
 .nav {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: center;
   max-width: 83vw;
   margin: 1.5rem auto;
+}
+
+.nav-top {
+  max-width: 83vw;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-line {
+  max-width: 83vw;
+  border: 1px solid #c0c4cc;
+  margin-top: 1.5rem;
+}
+
+@media screen and (max-width: 410px) {
+  .nav-top {
+    flex-direction: column;
+  }
+  .nav-logo {
+    margin-bottom: 1rem;
+  }
 }

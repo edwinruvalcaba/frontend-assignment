@@ -6,11 +6,14 @@ import '../styles/Nav.css';
 const Nav = (props) => {
   return (
     <div className="nav">
-      <img src={logo} alt="Timescale" />
-      <Search
-        handleSubmit={props.handleSubmit}
-        handleChange={props.handleChange}
-      />
+      <div className="nav-top">
+        <img className="nav-logo" src={logo} alt="Timescale" />
+        <Search
+          handleSubmit={props.handleSubmit}
+          handleChange={props.handleChange}
+        />
+      </div>
+      <div className="nav-line"></div>
     </div>
   );
 };

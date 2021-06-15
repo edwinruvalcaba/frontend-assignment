@@ -2,10 +2,13 @@ import { useEffect, useState } from 'react';
 import '../styles/App.css';
 import Nav from '../components/Nav';
 import MovieList from '../components/MovieList';
+import Modal from '../components/Modal';
 
 const App = () => {
   const [movies, setMovies] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const [openModal, setOpenModal] = useState(false);
+  const [currentMovie, setCurrentMovie] = useState();
 
   const apiKey = process.env.REACT_APP_MOVIE_DB_API_KEY;
   const apiUrl = process.env.REACT_APP_API_DOMAIN;
@@ -19,6 +22,7 @@ const App = () => {
         data.results.length = 12;
         setMovies([...data.results]);
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Handle movie search
@@ -28,7 +32,7 @@ const App = () => {
       .then((data) => data.json())
       .then((data) => {
         console.log(data);
-        data.results.length = 12;
+        if (data.results.length > 12) data.results.length = 12;
         setMovies([...data.results]);
       });
   };
@@ -37,11 +41,25 @@ const App = () => {
     setSearchTerm(e.target.value);
   };
 
+  const getMovieDetails = (id) => {
+    setCurrentMovie(id);
+    setOpenModal(true);
+  };
+
   return (
     <div className="app">
       <Nav handleSubmit={handleSubmit} handleChange={handleChange} />
-      <h1 className="heading">Most Recent Movies</h1>
-      <MovieList movies={movies} />
+      <div className="heading-container">
+        <h1 className="heading">
+          {searchTerm ? `${searchTerm}` : 'Most Recent Movies'}
+        </h1>
+      </div>
+      <Modal
+        openModal={openModal}
+        setOpenModal={setOpenModal}
+        movie={movies.filter((movie) => movie.id === currentMovie)[0]}
+      />
+      <MovieList movies={movies} getMovieDetails={getMovieDetails} />
     </div>
   );
 };

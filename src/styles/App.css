@@ -9,9 +9,21 @@
   margin: 0 auto;
 }
 
+.heading-container {
+  margin: 1rem 0 1rem 2.5rem;
+  padding-left: 2.7rem;
+}
+
 .heading {
   font-weight: bold;
   font-size: 24px;
   line-height: 28px;
-  left: 120px;
+}
+
+@media screen and (max-width: 648px) {
+  .heading-container {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
 }

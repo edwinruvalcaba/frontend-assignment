@@ -3,7 +3,7 @@ import '../styles/MovieCard.css';
 
 const MovieCard = (props) => {
   return (
-    <div className="card">
+    <div className="card" onClick={() => props.getMovieDetails(props.id)}>
       <div className="card-img__container">
         <div className="rating">{props.rating}</div>
         <img
