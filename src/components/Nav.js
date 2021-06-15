@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from '../images/logo.svg';
 import Search from './Search';
+import '../styles/Nav.css';
 
 const Nav = (props) => {
   return (
