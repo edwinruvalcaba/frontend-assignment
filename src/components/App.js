@@ -41,6 +41,7 @@ const App = () => {
     setSearchTerm(e.target.value);
   };
 
+  // Open modal with current movie details
   const getMovieDetails = (id) => {
     setCurrentMovie(id);
     setOpenModal(true);
