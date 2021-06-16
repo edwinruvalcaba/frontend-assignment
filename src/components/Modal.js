@@ -13,6 +13,9 @@ const Modal = (props) => {
   return (
     <div className="modal" onClick={closeModal}>
       <div className="modal-details">
+        <div className="modal-close__sm" onClick={closeModal}>
+          <img src={close} alt="close" />
+        </div>
         <div className="modal-left">
           <h1 className="modal-title">{props.movie.title}</h1>
           <img
